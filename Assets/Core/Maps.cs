@@ -19,7 +19,7 @@ public class Maps {
     public static Material s_grid;
     public static Transform s_stone; // stone template
     public static Transform s_breakable; // stone template
-    public static string PATH = "";
+    public static string PATH = Application.dataPath;
     /* */
 
     //

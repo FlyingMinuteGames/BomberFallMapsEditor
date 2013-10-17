@@ -6,7 +6,7 @@ public class EditorMenu : MonoBehaviour {
     
 	// Use this for initialization
 
-    private string grid_x="5", grid_y="5";
+    private string grid_x="5", grid_y="5",filename="test_map";
     private int x, y;
     private Maps maps = null;
     public Material grid_mat;
@@ -149,17 +149,23 @@ public class EditorMenu : MonoBehaviour {
         if (GUI.Button(GuiUtils.ResizeGUI(new Rect(15, 290, 140, 25), true), "Save to"))
         {
             if(maps != null)
-                maps.SaveToFile("test_map.map");
+                maps.SaveToFile(filename+".map");
         }
 
         if (GUI.Button(GuiUtils.ResizeGUI(new Rect(15, 320, 140, 25), true), "Load from"))
         {
-            Debug.Log("test");
-            maps = Maps.LoadMapsFromFile("test_map.map");
+            maps = Maps.LoadMapsFromFile(filename+".map");
             //maps.Clear();
             //maps.Generate();
         }
-        
+
+        filename = GUI.TextField(GuiUtils.ResizeGUI(new Rect(15, 350, 140, 25), true), filename);
+        if (GUI.Button(GuiUtils.ResizeGUI(new Rect(15, 380, 140, 25), true), "Quit"))
+        {
+            Application.Quit();
+        }
+
+
 
     }
 }
